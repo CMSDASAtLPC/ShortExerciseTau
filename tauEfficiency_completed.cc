@@ -12,6 +12,7 @@ void registerBranches(TTree *);
 int main(int argc, char **argv) {
   using std::cout;
   using std::endl;
+  using std::ios;
 
   std::string out = *(argv + 1);
 

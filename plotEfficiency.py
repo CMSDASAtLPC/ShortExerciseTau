@@ -6,7 +6,7 @@ Binning_PT = array.array(
     'd', [0, 20, 25, 30, 40, 55, 75, 95, 120, 150, 200, 300])
 OutFile = TFile('outputEfficiency.root')
 
-HistoNum = OutFile.Get('histoNumerator')
+HistoNum = OutFile.Get('histoLooseNumerator')
 HistoNum = HistoNum.Rebin(len(Binning_PT)-1, '', Binning_PT)
 
 HistoDeNum = OutFile.Get('histoDenominator')

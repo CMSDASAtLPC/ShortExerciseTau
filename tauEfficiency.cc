@@ -12,6 +12,8 @@ void registerBranches(TTree *tree);
 int main(int argc, char **argv) {
   using std::cout;
   using std::endl;
+  using std::ios;
+
   std::string out = *(argv + 1);
 
   cout << "\nOUTPUT NAME IS:    " << out << endl;  // PRINTING THE OUTPUT FILE NAME

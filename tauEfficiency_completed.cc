@@ -34,8 +34,14 @@ int main(int argc, char **argv) {
 
   registerBranches(Run_Tree);
   TLorentzVector Tau4Momentum, MC4Momentum;
-  for (auto ievt = 0; ievt < Run_Tree->GetEntries(); ievt++) {
+
+  auto nentries_wtn = Run_Tree->GetEntries();
+  for (auto ievt = 0; ievt < nentries_wtn; ievt++) {
     Run_Tree->GetEntry(ievt);
+    if (ievt % 1000 == 0) {
+      fprintf(stdout, "\r  Processed events: %8d of %8d ", ievt, nentries_wtn);
+    }
+    fflush(stdout);
 
     for (auto itau = 0; itau < nTau; itau++) {
       if (tauPt->at(itau) < 30 || fabs(tauEta->at(itau)) > 2.3 || fabs(tauDxy->at(itau)) < 0.05) {

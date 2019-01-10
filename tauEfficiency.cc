@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
   cout << "\nINPUT NAME IS:    " << input << endl;  // PRINTING THE INPUT FILE NAME
   TFile *myFile = TFile::Open(input.c_str());
 
-  //add the histrograms of All gen-matched taus, and all gen-matched taus passing numerator
+  // add the histrograms of All gen-matched taus, and all gen-matched taus passing numerator
   TH1F *histoDenominator = new TH1F("histoDenominator", "histoDenominator", 300, 0, 300);
   TH1F *histoNumerator = new TH1F("histoNumerator", "histoNumerator", 300, 0, 300);
 
@@ -29,7 +29,7 @@ int main(int argc, char **argv) {
   TTree *Run_Tree = reinterpret_cast<TTree *>(myFile->Get("EventTree"));
   cout.setf(ios::fixed, ios::floatfield);
 
-  //close the file at the end
+  // close the file at the end
   fout->cd();
   histoNumerator->Write();
   histoDenominator->Write();

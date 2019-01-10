@@ -13,6 +13,7 @@ float TMass_F(float, float, float, float, float);
 int main(int argc, char **argv) {
   using std::cout;
   using std::endl;
+  using std::ios;
 
   std::string out = *(argv + 1);
 
@@ -42,10 +43,11 @@ int main(int argc, char **argv) {
   float eleMass = 0.000511;
 
   // Loop over all events in the TTree.
-  for (auto ievt = 0; ievt < Run_Tree->GetEntries(); ievt++) {
+  auto nentries_wtn = Run_Tree->GetEntries();
+  for (auto ievt = 0; ievt < nentries_wtn; ievt++) {
     Run_Tree->GetEntry(ievt);  // read this event
-    if (i % 1000 == 0) {
-      fprintf(stdout, "\r  Processed events: %8d of %8d ", i, nentries_wtn);
+    if (ievt % 1000 == 0) {
+      fprintf(stdout, "\r  Processed events: %8d of %8d ", ievt, nentries_wtn);
     }
     fflush(stdout);
 
@@ -62,7 +64,7 @@ int main(int argc, char **argv) {
       }
 
       float IsoMu(muPFChIso->at(imu) / muPt->at(imu));
-      IsoMu += max(0., (muPFNeuIso->at(imu) + muPFPhoIso->at(imu) - 0.5 * muPFPUIso->at(imu)) / muPt->at(imu));
+      IsoMu += std::max(0., (muPFNeuIso->at(imu) + muPFPhoIso->at(imu) - 0.5 * muPFPUIso->at(imu)) / muPt->at(imu));
 
       if (IsoMu > 0.1) {
         continue;

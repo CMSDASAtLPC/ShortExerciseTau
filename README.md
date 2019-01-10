@@ -46,5 +46,6 @@ All input ROOT files are located at in the LPC eos area
 ```
 $ xrdfsls ls -u /store/user/tmitchel/DAS2019-Tau-Short
 root://131.225.204.161:1094//store/user/tmitchel/DAS2019-Tau-Short/DYJetsToLL_M-50_Inc_ShortEx.root
+root://131.225.204.161:1094//store/user/tmitchel/DAS2019-Tau-Short/SingleMuon.root
 root://131.225.204.161:1094//store/user/tmitchel/DAS2019-Tau-Short/WJetsToLNu_Inc_ShortEx.root
 ```

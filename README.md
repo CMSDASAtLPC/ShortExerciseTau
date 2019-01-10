@@ -15,7 +15,8 @@ Before grabbing the code, we need to setup our environment and get a CMSSW relea
 
 ```
 source /cvmfs/cms.cern.ch/cmsset_default.csh  # .sh for bash
-setenv SCRAM_ARCH slc6_amd64_gcc491
+setenv SCRAM_ARCH slc6_amd64_gcc491  # for .csh
+# export SCRAM_ARCH=slc6_amd64_gcc491  # for .sh
 ```
 
 Then, make a new directory for this exercise and get a CMSSW release

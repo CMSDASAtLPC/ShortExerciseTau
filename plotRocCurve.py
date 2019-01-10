@@ -26,11 +26,11 @@ ntuple_filefr = ROOT.TFile("outputFR.root")  # file fake rate
 plotRocCurve_def.produce_roc_curve(
     ntuple_fileeff, ntuple_filefr,  # ntuple files with histograms
     # 'histogramName No. 1', ' legendTitle No. 1'
-    'histoNumeratorLoose', 'byCombinedLoose',
+    'histoLooseNumerator', 'byCombinedLoose',
 			 # 'histogramName No. 2', ' legendTitle No. 2'
-			 'histoNumeratorMedium', 'byCombinedMedium',
+			 'histoMediumNumerator', 'byCombinedMedium',
 			 # 'histogramName No. 3', ' legendTitle No. 3'
-			 'histoNumeratorTight', 'byCombinedTight',
+			 'histoTightNumerator', 'byCombinedTight',
 			 # 'Top Title of Plot; X-Axis Title; Y-Axis Title'
 			 'ROC; tau Efficiency;tau Fake Rate',
 			 'roc'  # name of saved plot

@@ -5,7 +5,7 @@ import array
 Binning_PT = array.array("d", [0, 30, 35, 40, 50, 60, 75, 95, 120, 150, 200])
 OutFile = TFile("OutPutFR.root")
 
-HistoNum = OutFile.Get("histoNumerator")
+HistoNum = OutFile.Get("histoLooseNumerator")
 HistoNum = HistoNum.Rebin(len(Binning_PT)-1, "", Binning_PT)
 
 HistoDeNum = OutFile.Get("histoDenominator")

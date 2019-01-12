@@ -35,12 +35,12 @@ int main(int argc, char **argv) {
   TTree *Run_Tree = reinterpret_cast<TTree*>(myFile->Get("EventTree"));
   cout.setf(ios::fixed, ios::floatfield);
 
-  // SetBranchAddress-es to read data from root file
-  registerBranches(Run_Tree);
-
   // hardcode lepton masses
   float MuMass = 0.10565837;
   float eleMass = 0.000511;
+
+  // SetBranchAddress-es to read data from root file
+  registerBranches(Run_Tree);
 
   // Loop over all events in the TTree.
   auto nentries_wtn = Run_Tree->GetEntries();

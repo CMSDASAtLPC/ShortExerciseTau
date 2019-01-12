@@ -45,7 +45,7 @@ int main(int argc, char **argv) {
     fflush(stdout);
 
     for (auto itau = 0; itau < nTau; itau++) {
-      if (tauPt->at(itau) < 30 || fabs(tauEta->at(itau)) > 2.3 || fabs(tauDxy->at(itau)) < 0.05) {
+      if (tauPt->at(itau) < 30 || fabs(tauEta->at(itau)) > 2.3 || fabs(tauDxy->at(itau)) > 0.05) {
         continue;
       }
 

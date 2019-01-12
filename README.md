@@ -21,8 +21,8 @@ Before grabbing the code, we need to setup our environment and get a CMSSW relea
 
 ```
 source /cvmfs/cms.cern.ch/cmsset_default.csh  # .sh for bash
-setenv SCRAM_ARCH slc6_amd64_gcc491  # for .csh
-# export SCRAM_ARCH=slc6_amd64_gcc491  # for .sh
+setenv SCRAM_ARCH slc6_amd64_gcc630  # for .csh
+# export SCRAM_ARCH=slc6_amd64_gcc630  # for .sh
 ```
 
 Then, make a new directory for this exercise and get a CMSSW release
@@ -39,11 +39,11 @@ cmsenv
 ## Getting the code
 Clone this GitHub repository to get a copy of all the code you need
 ```
-git clone git@github.com:tmitchel/DAS2019-Tau-Short.git
+git clone git@github.com:CMSDASAtLPC/ShortExerciseTau.git
 ```
 or if you don't have SSH keys setup
 ```
-git clone https://github.com/tmitchel/DAS2019-Tau-Short.git
+git clone https://github.com/CMSDASAtLPC/ShortExerciseTau.git
 ```
 
 <a name="location"/>
@@ -51,10 +51,10 @@ git clone https://github.com/tmitchel/DAS2019-Tau-Short.git
 ## Input file location
 All input ROOT files are located at in the LPC eos area
 ```
-$ xrdfsls ls -u /store/user/tmitchel/DAS2019-Tau-Short
-root://131.225.204.161:1094//store/user/tmitchel/DAS2019-Tau-Short/DYJetsToLL_M-50_Inc_ShortEx.root
-root://131.225.204.161:1094//store/user/tmitchel/DAS2019-Tau-Short/SingleMuon.root
-root://131.225.204.161:1094//store/user/tmitchel/DAS2019-Tau-Short/WJetsToLNu_Inc_ShortEx.root
+$ xrdfsls -u /store/user/cmsdas/2019/short_exercises/Taus
+root://131.225.204.161:1094//store/user/cmsdas/2019/short_exercises/Taus/DYJetsToLL_M-50_Inc_ShortEx.root
+root://131.225.204.161:1094//store/user/cmsdas/2019/short_exercises/Taus/SingleMuon.root
+root://131.225.204.161:1094//store/user/cmsdas/2019/short_exercises/Taus/WJetsToLNu_Inc_ShortEx.root
 ```
 
 <a name="compile"/>

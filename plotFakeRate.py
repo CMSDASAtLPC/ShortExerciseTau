@@ -3,7 +3,7 @@ from ROOT import TFile, TCanvas, TGraph, TGraphAsymmErrors
 import array
 
 Binning_PT = array.array("d", [0, 30, 35, 40, 50, 60, 75, 95, 120, 150, 200])
-OutFile = TFile("OutPutFR.root")
+OutFile = TFile("outputFR.root")
 
 HistoNum = OutFile.Get("histoLooseNumerator")
 HistoNum = HistoNum.Rebin(len(Binning_PT)-1, "", Binning_PT)

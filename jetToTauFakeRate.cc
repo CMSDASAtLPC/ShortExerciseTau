@@ -28,15 +28,26 @@ int main(int argc, char **argv) {
   // passing numerator
 
   TH1F *histoDenominator = new TH1F("histoDenominator", "histoDenominator", 300, 0, 300);
-  TH1F *histoNumerator = new TH1F("histoNumerator", "histoNumerator", 300, 0, 300);
+  TH1F *histoLooseNumerator = new TH1F("histoLooseNumerator", "histoLooseNumerator", 300, 0, 300);
+  TH1F *histoMediumNumerator = new TH1F("histoMediumNumerator", "histoMediumNumerator", 300, 0, 300);
+  TH1F *histoTightNumerator = new TH1F("histoTightNumerator", "histoTightNumerator", 300, 0, 300);
 
   // TTree *Run_Tree = (TTree *)myFile->Get("EventTree");
   TTree *Run_Tree = reinterpret_cast<TTree *>(myFile->Get("EventTree"));
   cout.setf(ios::fixed, ios::floatfield);
 
+  // SetBranchAddress-es to read data from root file
+  // ...
+
+  // hardcode lepton masses
+  float MuMass = 0.10565837;
+  float eleMass = 0.000511;
+
   // close the file
   fout->cd();
-  histoNumerator->Write();
+  histoLooseNumerator->Write();
+  histoMediumNumerator->Write();
+  histoTightNumerator->Write();
   histoDenominator->Write();
   fout->Close();
 }

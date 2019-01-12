@@ -55,14 +55,17 @@ int main(int argc, char **argv) {
 
     // pick the good muon
     for (auto imu = 0; imu < nMu; imu++) {
+      // Muon kinematic selection.
       if (muPt->at(imu) < 30 || fabs(muEta->at(imu)) > 2.1) {
         continue;
       }
 
+      // Apply muon ID.
       if (muIsMediumID->at(imu) < 0.5) {
         continue;
       }
 
+      // Apply muon isolation.
       float IsoMu(muPFChIso->at(imu) / muPt->at(imu));
       IsoMu += std::max(0., (muPFNeuIso->at(imu) + muPFPhoIso->at(imu) - 0.5 * muPFPUIso->at(imu)) / muPt->at(imu));
 
@@ -70,6 +73,7 @@ int main(int argc, char **argv) {
         continue;
       }
 
+      // Transverse mass cut to assure this is a W boson decaying.
       float MuMetTranverseMass = TMass_F(muPt->at(imu), muPt->at(imu) * cos(muPhi->at(imu)),
                                          muPt->at(imu) * sin(muPhi->at(imu)), pfMET, pfMETPhi);
 
@@ -77,20 +81,24 @@ int main(int argc, char **argv) {
         continue;
       }
 
+      // Set the muon 4-momentum to be used later.
       Mu4Momentum.SetPtEtaPhiM(muPt->at(imu), muEta->at(imu), muPhi->at(imu), MuMass);
       break;  // Only 1 good muon so no need to continue the loop.
     }  // End Muon loop.
 
     // pick a good tau
     for (auto itau = 0; itau < nTau; itau++) {
+      // Tau kinematic selection.
       if (tauPt->at(itau) < 30 || fabs(tauEta->at(itau)) > 2.3) {
         continue;
       }
 
+      // Anti-muon/electron discriminators.
       if (tauByTightMuonRejection3->at(itau) < 0.5 || tauByMVA6LooseElectronRejection->at(itau) < 0.5) {
         continue;
       }
 
+      // Set tau 4-momentum and check dR between mu and tau
       Tau4Momentum.SetPtEtaPhiM(tauPt->at(itau), tauEta->at(itau), tauPhi->at(itau), tauMass->at(itau));
       if (Mu4Momentum.DeltaR(Tau4Momentum) < 0.5) {
         continue;

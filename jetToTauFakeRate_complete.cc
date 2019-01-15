@@ -54,6 +54,7 @@ int main(int argc, char **argv) {
     TLorentzVector Mu4Momentum, Tau4Momentum;
 
     // pick the good muon
+    bool foundMuon(false);
     for (auto imu = 0; imu < nMu; imu++) {
       // Muon kinematic selection.
       if (muPt->at(imu) < 30 || fabs(muEta->at(imu)) > 2.1) {
@@ -83,8 +84,14 @@ int main(int argc, char **argv) {
 
       // Set the muon 4-momentum to be used later.
       Mu4Momentum.SetPtEtaPhiM(muPt->at(imu), muEta->at(imu), muPhi->at(imu), MuMass);
+      foundMuon = true;
       break;  // Only 1 good muon so no need to continue the loop.
     }  // End Muon loop.
+
+    // Make sure you found a muon.
+    if (!foundMuon) {
+      continue;
+    }
 
     // pick a good tau
     for (auto itau = 0; itau < nTau; itau++) {

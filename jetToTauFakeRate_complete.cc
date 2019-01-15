@@ -129,10 +129,6 @@ int main(int argc, char **argv) {
 }
 
 void registerBranches(TTree *tree) {
-  tree->SetBranchAddress("tauPt", &tauPt);
-  tree->SetBranchAddress("tauPt", &tauPt);
-  tree->SetBranchAddress("tauPt", &tauPt);
-  tree->SetBranchAddress("tauPt", &tauPt);
   tree->SetBranchAddress("nTau", &nTau);
   tree->SetBranchAddress("tauPt", &tauPt);
   tree->SetBranchAddress("tauEta", &tauEta);
